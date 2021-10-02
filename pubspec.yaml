@@ -40,6 +40,7 @@ dependencies:
   file_picker: ^4.0.3
   flutter_local_notifications: ^8.2.0
   rxdart: ^0.27.1
+  bottom_navigation_bar: ^1.0.1
 
 dev_dependencies:
   flutter_test:
