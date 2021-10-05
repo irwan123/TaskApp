@@ -37,9 +37,11 @@ class _UploadScreenState extends State<UploadScreen> {
     if (task == null) return;
     final snaptshot = await task!.whenComplete(() => {});
     final url = await snaptshot.ref.getDownloadURL();
+    // ignore: avoid_print
     print(url);
   }
 
+  // ignore: non_constant_identifier_names
   Widget UploadStatus(UploadTask task) => StreamBuilder<TaskSnapshot>(
       stream: task.snapshotEvents,
       builder: (context, snapshot) {
@@ -53,6 +55,7 @@ class _UploadScreenState extends State<UploadScreen> {
         }
       });
 
+  @override
   void initState() {
     super.initState();
     NotificationApi.init();

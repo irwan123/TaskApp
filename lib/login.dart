@@ -1,7 +1,7 @@
+import 'package:apptask/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'upload.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -72,12 +72,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: double.infinity,
                 height: 50,
                 margin: const EdgeInsets.all(10),
+                // ignore: deprecated_member_use
                 child: OutlineButton(
                   borderSide: const BorderSide(
                       color: Colors.blueAccent, style: BorderStyle.solid),
                   textColor: Colors.white,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),
+                  // ignore: deprecated_member_use
                   color: Theme.of(context).accentColor,
                   child: const Text(
                     'Login',
@@ -112,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               email: _email, password: _password)
                           .then((_) {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => const UploadScreen()));
+                            builder: (context) => const DashboardPage()));
                       });
                     }
                   },
@@ -120,13 +122,15 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const Text('Tidak punya akun?'),
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 width: double.infinity,
                 height: 50,
+                // ignore: deprecated_member_use
                 child: RaisedButton(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
                     ),
+                    // ignore: deprecated_member_use
                     color: Theme.of(context).accentColor,
                     child: const Text(
                       'Register',
@@ -136,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontSize: 16),
                     ),
                     onPressed: () {
-                      if (_password.length < 6 || _password == null) {
+                      if (_password.length < 6) {
                         showDialog(
                             context: context,
                             builder: (BuildContext context) {

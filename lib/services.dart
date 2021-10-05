@@ -8,7 +8,9 @@ class MyFirebaseStorage {
       final ref = FirebaseStorage.instance.ref(destination);
       return ref.putFile(file);
     } on FirebaseException catch (e) {
+      // ignore: avoid_print
       print('Error!');
+      // ignore: avoid_print
       print(e);
       return null;
     }

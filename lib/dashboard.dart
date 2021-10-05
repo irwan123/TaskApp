@@ -1,5 +1,5 @@
 import 'package:apptask/download.dart';
-import 'package:apptask/home.dart';
+import 'package:apptask/task.dart';
 import 'package:apptask/profil.dart';
 import 'package:apptask/upload.dart';
 import 'package:flutter/material.dart';
@@ -14,17 +14,17 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   late final int _currentIndex = 0;
 
-  final HomePage _homePage = const HomePage();
+  final TaskPage _taskPage = const TaskPage();
   final DownloadScreen _downloadScreen = const DownloadScreen();
   final UploadScreen _uploadScreen = const UploadScreen();
   final ProfilPage _profilPage = const ProfilPage();
 
-  late Widget _showPage = const HomePage();
+  late Widget _showPage = const TaskPage();
 
   Widget _pageChooser(int page) {
     switch (page) {
       case 0:
-        return _homePage;
+        return _taskPage;
       case 1:
         return _downloadScreen;
       case 2:
@@ -51,8 +51,8 @@ class _DashboardPageState extends State<DashboardPage> {
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: ("Home"),
+              icon: Icon(Icons.task),
+              label: ("Task"),
               backgroundColor: Colors.blue),
           BottomNavigationBarItem(
               icon: Icon(Icons.download),
