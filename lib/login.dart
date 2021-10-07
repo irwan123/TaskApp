@@ -1,6 +1,8 @@
 import 'package:apptask/dashboard.dart';
+import 'package:apptask/profil/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'profil/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -14,6 +16,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late String _email, _password;
   final auth = FirebaseAuth.instance;
+  DatabaseService? databaseService;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       if (_password.length < 6) {
                         showDialog(
                             context: context,
@@ -162,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               );
                             });
                       } else {
-                        auth
+                        await auth
                             .createUserWithEmailAndPassword(
                                 email: _email, password: _password)
                             .then((_) {
@@ -171,6 +174,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             builder: (context) => const LoginScreen(),
                           ));
                         });
+                        await databaseService?.createUser(Users(
+                            id: auth.currentUser!.uid.toString(),
+                            email: _email,
+                            photo: ''));
                       }
                     }),
               )

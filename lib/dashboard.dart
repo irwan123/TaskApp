@@ -1,6 +1,6 @@
 import 'package:apptask/download.dart';
 import 'package:apptask/task.dart';
-import 'package:apptask/profil.dart';
+import 'package:apptask/profil/profil.dart';
 import 'package:apptask/upload.dart';
 import 'package:flutter/material.dart';
 
