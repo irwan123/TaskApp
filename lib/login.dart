@@ -1,5 +1,4 @@
 import 'package:apptask/dashboard.dart';
-import 'package:apptask/profil/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -172,6 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             builder: (context) => const LoginScreen(),
                           ));
                         });
+                      }
                     }),
               )
             ],
